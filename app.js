@@ -19,9 +19,6 @@ db.on('open', ()=>{
   console.log('Connected to MongoDB');
 })
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -36,8 +33,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var index = require('./routes/index');
+const company = require('./routes/companyController')
+
 app.use('/', index);
-app.use('/users', users);
+app.use('/companies', company);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
