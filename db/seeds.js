@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = require('./schema.js');
 
 mongoose.connect(process.env.MONGODB_URI)
+//mongoose.connect('mongodb://heroku_8zxvr2hc:jfs8hb5n0id1ilrpl7k5pphq80@ds149934.mlab.com:49934/heroku_8zxvr2hc')
 
 const db = mongoose.connection;
 
