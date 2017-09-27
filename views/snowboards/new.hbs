@@ -1,10 +1,10 @@
 <h1>New Snowboard</h1>
 <form action="/companies/{{companyId}}/snowboards" method='POST'>
    <label for="name">Name:</label>
-   <input type="text" name='name'>
+   <input type="text" name='name' required='true'>
    <br>
    <label for="price">Price:</label>
-   <input type="number" name='price'>
+   <input type="number" name='price' min='0' step='.01' required='true'>
    <br>
    <button type='submit'>Create</button>
 </form>
