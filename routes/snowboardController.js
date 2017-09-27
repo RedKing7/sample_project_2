@@ -101,5 +101,21 @@ router.get('/:snowboardId', (req, res)=>{
 })
 
 //delete
+router.get('/:snowboardId/delete', (req, res)=>{
+   const companyId = req.params.companyId;
+   const snowboardId = req.params.snowboardId;
+
+   CompanyModel.findById(companyId)
+      .then((company)=>{
+         const snowboard = company.snowboards.id(snowboardId).remove(); //nice and easy
+         return company.save(); //must do this, or change wont be saved
+      })
+      .then(()=>{
+         res.redirect(`/companies/${companyId}/snowboards`)
+      })
+      .catch((err)=>{
+         console.log(err);
+      })
+})
 
 module.exports = router
