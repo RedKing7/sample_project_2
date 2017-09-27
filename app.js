@@ -9,6 +9,16 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
+const db = mongoose.connection;
+
+db.on('error', (error)=>{
+  console.log(error);
+})
+
+db.on('open', ()=>{
+  console.log('Connected to MongoDB');
+})
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
