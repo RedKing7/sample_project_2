@@ -35,9 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var index = require('./routes/index');
 const company = require('./routes/companyController')
+const snowboards = require('./routes/snowboardController')
 
 app.use('/', index);
 app.use('/companies', company);
+app.use('/companies/:companyId/snowboards', snowboards);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

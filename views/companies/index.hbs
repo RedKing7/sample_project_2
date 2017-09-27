@@ -1,0 +1,9 @@
+<hr>
+{{#each companies}}
+<div>
+   <h1>{{this.name}} - {{this.country}}</h1>
+   {{!-- <a href='/companies/{{this.name}}/snowboards'>{{this.name}}'s Snowboards</a> --}}
+   <a href="/companies/{{this._id}}/snowboards">{{this.name}}'s Snowboards</a>
+</div>
+<hr>
+{{/each}}
